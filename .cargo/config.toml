@@ -1,6 +1,7 @@
 [alias]
 xtask = "run --package xtask --"
 export = "xtask export"
+iterate = "xtask iterate"
 
 [target.'cfg(all(target_arch = "arm", target_os = "none"))']
 rustflags = [

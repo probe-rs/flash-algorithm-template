@@ -10,7 +10,8 @@ It can be used to generate new flash algoritms for usage with `probe-rs`.
 Run the following requirements:
 
 ```bash
-cargo install cargo-generate && cargo-binutils && rustup component add llvm-tools-preview
+cargo install cargo-generate cargo-binutils target-gen
+rustup component add llvm-tools-preview
 ```
 
 ## Instantiating the template
@@ -21,23 +22,24 @@ Run
 cargo generate gh:probe-rs/flash-algorithm-template
 ```
 
+or
+
+```bash
+cargo generate gh:probe-rs/flash-algorithm-template  --name=algorithm \
+-d target-arch=thumbv7em-none-eabi \
+-d ram-start-address=0x20000000 \
+-d ram-size=0x4000 \
+-d flash-start-address=0x0 \
+-d flash-size=0x40000
+```
+
 to generate a new project from the template.
 
 ## Building the algorithm
 
 Building requires nightly Rust.
 
-Just run `cargo export`. It spits out the flash algo in the probe-rs YAML format:
-
-    flash-algorithm$ cargo export
-    flash-algorithm:
-      name: {{project-name}}
-      instructions: sLUUIACIGUoBRguI...wRwAgcEc=
-      pc_init: 0x00000000
-      pc_uninit: 0x0000007c
-      pc_program_page: 0x00000088
-      pc_erase_sector: 0x00000084
-      pc_erase_all: 0x00000080
+Just run `cargo export`. It spits out the flash algo in the probe-rs YAML format.
 
 # License
 

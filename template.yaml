@@ -1,0 +1,51 @@
+name: algorithm-test
+variants:
+  - name: algorithm-test
+    cores:
+      - name: main
+        type: {{architecture}}
+        core_access_options: !Arm
+          ap: 0x0
+          psel: 0x0
+    memory_map:
+      - !Ram
+          range:
+            start: {{ram-start-address}}
+            end: {{ram-end-address}}
+          is_boot_memory: false
+          cores:
+            - main
+      - !Nvm
+          range:
+            start: {{flash-start-address}}
+            end: {{flash-end-address}}
+          is_boot_memory: true
+          cores:
+            - main
+    flash_algorithms:
+      - algorithm-test
+flash_algorithms:
+  - name: algorithm-test
+    description: A flash algorithm under test
+    cores:
+      - main
+    default: true
+    instructions: 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
+    pc_init: 0x0
+    pc_uninit: 0x0
+    pc_program_page: 0x0
+    pc_erase_sector: 0x0
+    pc_erase_all: 0x0
+    data_section_offset: 0x0
+    # load_address: {{ram-end-address}}
+    flash_properties:
+      address_range:
+        start: 0x0
+        end: 0x0
+      page_size: 0x0
+      erased_byte_value: 0x0
+      program_page_timeout: 0x0
+      erase_sector_timeout: 0x0
+      sectors:
+        - size: 0x0
+          address: 0x0

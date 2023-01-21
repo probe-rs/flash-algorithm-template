@@ -17,5 +17,33 @@ type = "string"
 prompt = "What is the target RAM start address where the flash algorithm should be placed?"
 default = "0x0"
 
+[placeholders.ram-size]
+type = "string"
+prompt = "What is the target RAM size in bytes?"
+default = "0x0"
+
+[placeholders.flash-start-address]
+type = "string"
+prompt = "What is the target Flash start address of the device the flash algorithm is for?"
+default = "0x20000000"
+
+[placeholders.flash-size]
+type = "string"
+prompt = "What is the target Flash size in bytes?"
+default = "0x0"
+
+[placeholders.flash-page-size]
+type = "string"
+prompt = "What is the target Flash page size in bytes?"
+default = "0x400"
+
+[placeholders.empty-byte-value]
+type = "string"
+prompt = "What is the erased state of a byte in Flash?"
+default = "0xFF"
+
 [template]
 exclude = ["README.md", "/target", "/test"]
+
+[hooks]
+pre = ["calculate-memory.rhai"]

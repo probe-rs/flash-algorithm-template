@@ -7,7 +7,16 @@ use flash_algorithm::*;
 
 struct Algorithm;
 
-algorithm!(Algorithm);
+algorithm!(Algorithm, {
+    flash_address: {{flash-start-address}},
+    flash_size: {{flash-size}},
+    page_size: {{flash-page-size}},
+    empty_value: 0xFF,
+    sectors: [{
+        size: {{flash-size}},
+        address: {{flash-start-address}},
+    }]
+});
 
 impl FlashAlgorithm for Algorithm {
     fn new(_address: u32, _clock: u32, _function: Function) -> Result<Self, ErrorCode> {

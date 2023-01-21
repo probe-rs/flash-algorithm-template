@@ -11,7 +11,7 @@ forced-target = "{{target-arch}}"
 
 [dependencies]
 cortex-m = "0.7.0"
-flash-algorithm = { version = "0.1" }
+flash-algorithm = { version = "0.3.0" }
 
 # this lets you use `cargo fix`!
 [[bin]]
