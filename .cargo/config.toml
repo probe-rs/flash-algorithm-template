@@ -1,0 +1,22 @@
+[alias]
+xtask = "run --package xtask --"
+export = "xtask export"
+
+[target.'cfg(all(target_arch = "arm", target_os = "none"))']
+rustflags = [
+  "-C",
+  "link-arg=--nmagic",
+  "-C",
+  "link-arg=-Tlink.x",
+  "-C",
+  "link-arg=-Tmemory.x",
+  # Code-size optimizations.
+  "-Z",
+  "trap-unreachable=no",
+  "-C",
+  "inline-threshold=5",
+  "-C",
+  "no-vectorize-loops",
+  "-C",
+  "force-frame-pointers=no",
+]

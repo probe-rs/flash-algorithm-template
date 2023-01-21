@@ -1,0 +1,11 @@
+[package]
+name = "xtask"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+xshell = { version = "0.2", default-features = false }
+clap = { version = "4", default-features = false, features = ["std", "derive"] }
+base64 = { version = "0.21", default-features = false, features = ["std"] }
+cargo_metadata = { version = "0.15", default-features = false }
+anyhow = { version = "1", default-features = false, features = ["std"] }

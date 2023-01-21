@@ -1,0 +1,45 @@
+on:
+  push:
+    branches: [master, staging, trying]
+  pull_request:
+
+name: Run CI
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install stable toolchain
+      uses: dtolnay/rust-toolchain@stable
+      with:
+        target: thumbv7em-none-eabi
+        toolchain: nightly
+    - name: Cache Dependencies
+      uses: Swatinem/rust-cache@v2.2.0
+    - name: Install Dependencies
+      run: |
+        sudo apt update
+        cargo install cargo-binutils
+        rustup component add llvm-tools-preview clippy rustfmt
+    - name: install cargo-generate
+      run: |
+        curl -LsSf https://github.com/cargo-generate/cargo-generate/releases/download/v0.17.6/cargo-generate-v0.17.6-x86_64-unknown-linux-gnu.tar.gz | tar xzf - -C ${CARGO_HOME:-~/.cargo}/bin
+    # - name: install cargo-binutils
+    #   run: |
+    #     curl -LsSf https://github.com/rust-embedded/cargo-binutils/releases/download/v0.3.6/x86_64-unknown-linux-gnu.tar.gz | tar xzf - -C ${CARGO_HOME:-~/.cargo}/bin
+    - name: Template a project
+      run: cargo generate --path ../ --name=test -d target-arch=thumbv7em-none-eabi -d ram-start-address=0x0
+    - name: Check
+      run: cd test && cargo check --target thumbv7em-none-eabi
+    - name: Clippy
+      run: cd test && cargo clippy --target thumbv7em-none-eabi
+    - name: Format
+      run: cd test && cargo fmt
+    - name: Template & Export
+      run: cd test && cargo export

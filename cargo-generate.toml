@@ -1,0 +1,21 @@
+[placeholders.target-arch]
+type = "string"
+prompt = "What is the target architecture?"
+choices = [
+    "thumbv6m-none-eabi",
+    "thumbv7m-none-eabi",
+    "thumbv7em-none-eabi",
+    "thumbv7em-none-eabihf",
+    "thumbv8m.base-none-eabi",
+    "thumbv8m.main-none-eabi",
+    "thumbv8m.main-none-eabihf",
+]
+default = "thumbv6m-none-eabi"
+
+[placeholders.ram-start-address]
+type = "string"
+prompt = "What is the target RAM start address where the flash algorithm should be placed?"
+default = "0x0"
+
+[template]
+exclude = ["README.md", "/target", "/test"]
