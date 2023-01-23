@@ -1,5 +1,3 @@
-cargo-features = ["per-package-target"]
-
 [package]
 authors = ["{{authors}}"]
 edition = "2021"
@@ -7,11 +5,10 @@ readme = "README.md"
 name = "{{project-name}}"
 version = "0.1.0"
 
-forced-target = "{{target-arch}}"
-
 [dependencies]
 cortex-m = "0.7.0"
 flash-algorithm = { version = "0.3.0" }
+rtt-target = { version = "0.3", features = ["cortex-m"] }
 
 # this lets you use `cargo fix`!
 [[bin]]
@@ -50,6 +47,3 @@ debug = false
 debug-assertions = false
 opt-level = 0
 overflow-checks = false
-
-[workspace]
-members = [".", "xtask"]

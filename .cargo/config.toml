@@ -1,8 +1,3 @@
-[alias]
-xtask = "run --package xtask --"
-export = "xtask export"
-iterate = "xtask iterate"
-
 [target.'cfg(all(target_arch = "arm", target_os = "none"))']
 rustflags = [
   "-C",
@@ -12,8 +7,9 @@ rustflags = [
   "-C",
   "link-arg=-Tmemory.x",
   # Code-size optimizations.
-  "-Z",
-  "trap-unreachable=no",
+  # This requires nightly atm.
+  # "-Z",
+  # "trap-unreachable=no",
   "-C",
   "inline-threshold=5",
   "-C",
@@ -21,3 +17,6 @@ rustflags = [
   "-C",
   "force-frame-pointers=no",
 ]
+
+[build]
+target = "{{target-arch}}"

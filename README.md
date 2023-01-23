@@ -39,7 +39,14 @@ to generate a new project from the template.
 
 Building requires nightly Rust.
 
-Just run `cargo export`. It spits out the flash algo in the probe-rs YAML format.
+Just run `target-gen export`. It spits out the flash algo in the probe-rs YAML format.
+
+## Developing the algorithm
+
+Building requires nightly Rust.
+
+Just run `target-gen test`. It spits out the flash algo in the probe-rs YAML format and downloads it onto a target and makes a test run.
+You will also be able to see RTT messages.
 
 # License
 

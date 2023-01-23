@@ -12,6 +12,13 @@ variable::set(
       + parse_int(variable::get("flash-size").sub_string(2), 16)
     ).to_hex()
 );
+variable::set(
+  "link-address",
+  "0x" + (
+      parse_int(variable::get("ram-start-address").sub_string(2), 16)
+    + 0x20
+  ).to_hex()
+);
 
 let target = variable::get("target");
 
