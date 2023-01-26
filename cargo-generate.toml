@@ -37,6 +37,11 @@ type = "string"
 prompt = "What is the target Flash page size in bytes?"
 default = "0x400"
 
+[placeholders.flash-sector-size]
+type = "string"
+prompt = "What is the target Flash sector size in bytes?"
+default = "0x400"
+
 [placeholders.empty-byte-value]
 type = "string"
 prompt = "What is the erased state of a byte in Flash?"

@@ -42,7 +42,8 @@ jobs:
         -d flash-start-address=0x0 \
         -d flash-page-size=0x400 \
         -d flash-size=0x40000 \
-        -d empty-byte-value=0xFF
+        -d empty-byte-value=0xFF \
+        -d flash-sector-size=0x400
     - name: Check
       run: cd test && cargo check --target thumbv7em-none-eabi
     - name: Clippy

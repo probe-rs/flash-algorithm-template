@@ -14,7 +14,7 @@ algorithm!(Algorithm, {
     page_size: {{flash-page-size}},
     empty_value: 0xFF,
     sectors: [{
-        size: {{flash-size}},
+        size: {{flash-sector-size}},
         address: {{flash-start-address}},
     }]
 });
