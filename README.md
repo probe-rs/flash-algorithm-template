@@ -35,18 +35,14 @@ cargo generate gh:probe-rs/flash-algorithm-template  --name=algorithm \
 
 to generate a new project from the template.
 
-## Building the algorithm
-
-Building requires nightly Rust.
-
-Just run `target-gen export`. It spits out the flash algo in the probe-rs YAML format.
-
 ## Developing the algorithm
 
 Building requires nightly Rust.
 
-Just run `target-gen test`. It spits out the flash algo in the probe-rs YAML format and downloads it onto a target and makes a test run.
+Just run `cargo run`. It spits out the flash algo in the probe-rs YAML format and downloads it onto a target and makes a test run.
 You will also be able to see RTT messages.
+
+You can find the generated YAML in `target/definition.yaml`.
 
 # License
 

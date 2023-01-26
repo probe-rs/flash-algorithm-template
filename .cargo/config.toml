@@ -17,6 +17,7 @@ rustflags = [
   "-C",
   "force-frame-pointers=no",
 ]
+runner = "target-gen run"
 
 [build]
 target = "{{target-arch}}"
