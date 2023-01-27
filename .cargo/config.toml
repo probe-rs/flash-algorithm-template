@@ -17,7 +17,7 @@ rustflags = [
   "-C",
   "force-frame-pointers=no",
 ]
-runner = "target-gen run"
+runner = "target-gen test template.yaml target/definition.yaml"
 
 [build]
 target = "{{target-arch}}"
