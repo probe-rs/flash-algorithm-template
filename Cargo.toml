@@ -7,7 +7,7 @@ version = "0.1.0"
 
 [dependencies]
 cortex-m = "0.7.0"
-flash-algorithm = { version = "0.3.0" }
+flash-algorithm = { version = "0.4.0" }
 rtt-target = { version = "0.3", features = ["cortex-m"] }
 
 # this lets you use `cargo fix`!
