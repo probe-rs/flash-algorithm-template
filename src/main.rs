@@ -15,7 +15,7 @@ algorithm!(Algorithm, {
     empty_value: 0xFF,
     sectors: [{
         size: {{flash-sector-size}},
-        address: {{flash-start-address}},
+        address: 0x0,
     }]
 });
 
