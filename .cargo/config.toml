@@ -11,7 +11,7 @@ rustflags = [
   # "-Z",
   # "trap-unreachable=no",
   "-C",
-  "inline-threshold=5",
+  "llvm-args=--inline-threshold=5",
   "-C",
   "no-vectorize-loops",
   "-C",
