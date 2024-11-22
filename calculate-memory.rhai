@@ -20,7 +20,7 @@ variable::set(
   ).to_hex()
 );
 
-let target = variable::get("target");
+let target = variable::get("target-arch");
 
 variable::set("architecture", switch target {
     "thumbv6m-none-eabi" => "armv6m",

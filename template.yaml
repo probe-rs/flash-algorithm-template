@@ -12,14 +12,16 @@ variants:
           range:
             start: {{ram-start-address}}
             end: {{ram-end-address}}
-          is_boot_memory: false
+          access:
+            boot: false
           cores:
             - main
       - !Nvm
           range:
             start: {{flash-start-address}}
             end: {{flash-end-address}}
-          is_boot_memory: true
+          access:
+            boot: true
           cores:
             - main
     flash_algorithms:
