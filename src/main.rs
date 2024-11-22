@@ -1,7 +1,6 @@
 #![no_std]
 #![no_main]
 
-// use core::mem::MaybeUninit;
 
 use flash_algorithm::*;
 use rtt_target::{rprintln, rtt_init_print};
