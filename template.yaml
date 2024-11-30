@@ -1,6 +1,6 @@
-name: algorithm-test
+name: {{project-name}}
 variants:
-  - name: algorithm-test
+  - name: {{project-name}}
     cores:
       - name: main
         type: {{architecture}}
@@ -25,9 +25,9 @@ variants:
           cores:
             - main
     flash_algorithms:
-      - algorithm-test
+      - {{project-name}}
 flash_algorithms:
-  - name: algorithm-test
+  - name: {{project-name}}
     description: A flash algorithm under test
     cores:
       - main
