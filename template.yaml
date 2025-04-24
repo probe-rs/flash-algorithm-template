@@ -5,8 +5,7 @@ variants:
       - name: main
         type: {{architecture}}
         core_access_options: !Arm
-          ap: 0x0
-          psel: 0x0
+          ap: !v1 1
     memory_map:
       - !Ram
           range:
